@@ -17,12 +17,16 @@ import { useState } from 'react';
 export default function SignUpScreen() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [firstName, setfirstName] = useState("");
+  const [lastName, setlastName] = useState("");
   const [errors, setErrors] = useState({});
 
   const validatForm = () => {
     let errors = {}
 
-    if (!username) errors.username = "Username is required"
+    if (!firstName) errors.firstName = "first name is required"
+    if (!lastName) errors.lastName = "last name is required"
+    if (!username) errors.username = "username is required"
     if (!password) errors.password = "password is required"
 
     setErrors(errors)
@@ -31,7 +35,10 @@ export default function SignUpScreen() {
 
   const handleSubmit = () =>{
     if(validatForm()){
-      console.log("Submitted", username, password);
+      alert("Submitted",firstName, lastName, username, password);
+
+      setfirstName("");
+      setlastName("");
       setUsername("");
       setPassword("");
       setErrors({});
@@ -43,14 +50,31 @@ export default function SignUpScreen() {
     keyboardVerticalOffset={Platform.OS === "ios" ? 100 : 0} style={styles.container}>
       <View style={styles.form}>
         {/* <Image style={styles.picture} source={require("./assets/logo-black.copy.png")} /> */}
-        <Text style={styles.label}>Username</Text>
+        
+        <Text style={styles.label}>First Name</Text>
         <TextInput style={styles.input}
-          placeholder='enter your username'
-          value={username} onChangeText={setUsername} />
-
+          placeholder='enter your first name'
+          value={firstName} onChangeText={setfirstName} />
           {
-            errors.username ? <Text style = { styles.errorText }>{errors.username}</Text> : null
+            errors.firstName ? <Text style = { styles.errorText }>{errors.firstName}</Text> : null
           }
+
+            <Text style={styles.label}>Last Name</Text>
+            <TextInput style={styles.input}
+              placeholder='enter your Last Name'
+              value={lastName} onChangeText={setlastName} />
+            {
+              errors.lastName ? <Text style = { styles.errorText }>{errors.lastName}</Text> : null
+            }
+
+            <Text style={styles.label}>User Name</Text>
+            <TextInput style={styles.input}
+              placeholder='enter your User Name'
+              value={username} onChangeText={setUsername} />
+            {
+              errors.username ? <Text style = { styles.errorText }>{errors.username}</Text> : null
+            }
+
         <Text style={styles.label}>Password</Text>
         <TextInput style={styles.input}
           placeholder='enter your password'
