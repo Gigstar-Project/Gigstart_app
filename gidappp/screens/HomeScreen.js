@@ -12,9 +12,18 @@ export default function HomeScreen({navigation}) {
           {/* <Image style={styles.picture} source={require("./assets/logo-black.copy.png")} /> */}
         
             <View style = { styles.parkUp }>
-            <TouchableOpacity style={styles.getStartedBtn} onPress = {() => navigation.navigate('Sign up') }>
+            <TouchableOpacity style={styles.getStartedBtn} onPress = {() => navigation.navigate('Verify') }>
               <Text style={styles.buttonText}>Get Started</Text>
             </TouchableOpacity>
+
+
+            {/* <TouchableOpacity style={styles.getStartedBtn} onPress = {() => navigation.navigate('Verify') }>
+              <Text style={styles.buttonText}>Get Started</Text>
+            </TouchableOpacity> */}
+
+
+
+            
 
             {/* <TouchableOpacity style={styles.loginBtn} >
               <Text style={styles.buttonText} >Login</Text>

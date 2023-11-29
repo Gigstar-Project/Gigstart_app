@@ -1,9 +1,42 @@
 import React, { useState } from "react";
-import { TextInput, View } from "react-native";
+
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { TextInput, View, Button, StyleSheet, TouchableOpacity, Text } from "react-native";
 
 
 
-const VerificationPage = () => {
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: 'white',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  image: {
+    width: 300,
+    height: 300,
+  },
+  text: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginBottom: 20,
+  },
+  input: {
+    width: 200,
+    height: 40,
+    borderColor: 'blue',
+    borderWidth: 1,
+    marginBottom: 10,
+    padding: 10,
+  },
+});
+
+
+
+const VerificationPage = ({navigation}) => {
   const [email, setEmail] = useState("");
   const [verificationCode, setVerificationCode] = useState("");
   const [isValidEmail, setIsValidEmail] = useState(true);
@@ -24,9 +57,12 @@ const VerificationPage = () => {
   };
 
   return (
+   
+
+    
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
       <TextInput
-        style={{
+        const style={{
           width: 300,
           height: 50,
           borderColor: isValidEmail ? "blue" : "red",
@@ -52,7 +88,24 @@ const VerificationPage = () => {
         value={verificationCode}
         onChangeText={handleChangeVerificationCode}
       />
+
+    {/* <Button
+      title="Vefy"
+      style={styles.Button}
+      onPress={()=>{
+
+      }}
+      /> */}
+
+
+            <TouchableOpacity style={styles.Button} onPress = {() => navigation.navigate('Sign up') }>
+              <Text style={styles.buttonText}>Verify</Text>
+            </TouchableOpacity>
+
+
     </View>
+
+
   );
 };
 

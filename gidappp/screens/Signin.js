@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, Image, TextInput, Button } from 'react-native';
+
+import { StyleSheet, Text, View, Image, TextInput, Button, TouchableOpacity } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
@@ -28,13 +29,14 @@ const styles = StyleSheet.create({
   },
 });
 
-const Signin = () => {
+const Signin = ({navigation}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   return (
+    
     <View style={styles.container}>
-      <Image source={require('/home/joseph/Desktop/gigstar/gidappp/assets/logo-black - Copy.png')} style={styles.image} />
+      {/* <Image source={require('/home/joseph/Desktop/gigstar/gidappp/assets/logo-black - Copy.png')} style={styles.image} /> */}
       <Text style={styles.text}>Gigstar</Text>
 
       <TextInput
@@ -55,10 +57,13 @@ const Signin = () => {
       <Button
       title="Login"
       style={styles.Button}
-      onPress={()=>{
-
-      }}
+      onPress={()=>navigation.navigate('')}
       />
+
+            {/* <TouchableOpacity style={styles.Button} onPress = {() => navigation.navigate('Sign up') }>
+              <Text style={styles.buttonText}>L</Text>
+            </TouchableOpacity> */}
+
 
       
     </View>
