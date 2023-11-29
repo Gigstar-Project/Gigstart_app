@@ -89,18 +89,16 @@ const VerificationPage = ({navigation}) => {
         onChangeText={handleChangeVerificationCode}
       />
 
-    {/* <Button
-      title="Vefy"
+    <Button
+      title="Verify"
       style={styles.Button}
-      onPress={()=>{
-
-      }}
-      /> */}
+      onPress={()=>navigation.navigate('Sign up')}
+      />
 
 
-            <TouchableOpacity style={styles.Button} onPress = {() => navigation.navigate('Sign up') }>
+            {/* <TouchableOpacity style={styles.Button} onPress = {() => navigation.navigate('Sign up') }>
               <Text style={styles.buttonText}>Verify</Text>
-            </TouchableOpacity>
+            </TouchableOpacity> */}
 
 
     </View>
