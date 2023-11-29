@@ -8,6 +8,7 @@ import {
   Image,
   KeyboardAvoidingView,
   Platform,
+  TouchableOpacity
 
 } from 'react-native';
 
@@ -60,7 +61,10 @@ export default function SignUpScreen() {
             errors.password ? <Text style = { styles.errorText }>{errors.password}</Text> : null
           }
 
-        <Button title="Sign Up" onPress={handleSubmit} />
+        {/* <Button title="Sign Up" onPress={handleSubmit} /> */}
+        <TouchableOpacity style={styles.SignUpBtn} >
+              <Text style={styles.buttonText}  onPress={handleSubmit} >Sign Up</Text>
+            </TouchableOpacity>
       </View>
 
 
@@ -118,5 +122,20 @@ const styles = StyleSheet.create({
     color: "red",
     marginBottom: 10,
 
+  },
+  SignUpBtn: {
+    backgroundColor: 'black',
+    borderRadius: 7,
+    width: 150,
+    height: 50,
+    alignItems: 'center',
+    left: 70,
+   
+  },
+  buttonText: {
+    fontWeight: 'bold',
+    fontSize: 16,
+    color: 'white',
+    marginTop: 13,
   }
 });
