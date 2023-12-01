@@ -2,8 +2,11 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import HomeScreen from "./screens/HomeScreen";
 import SignUpScreen from "./screens/SignUpScreen";
-import Signin from "./screens/Signin"
-import VerificationPage from "./screens/VerificationPage"
+import InputEmail from "./screens/InputEmailPage";
+
+import VerificationPage from "./screens/VerifyPage"
+import Login from "./screens/Login";
+import VerifyPage from "./screens/VerifyPage";
 
 
 
@@ -14,9 +17,11 @@ export default function App(){
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name = "Home"  component={HomeScreen}/>
-         <Stack.Screen name = "Verify"  component={VerificationPage}/>
+         <Stack.Screen name = "Verify"  component={InputEmail}/>
+         <Stack.Screen name = "Login"  component={Login }/>
         <Stack.Screen name = "Sign up"  component={SignUpScreen }/>
-        <Stack.Screen name = "Login"  component={Signin }/>
+        <Stack.Screen name = "VerifyPage"  component={VerifyPage }/>
+      {/* <Stack.Screen name = "Verify" component={VerifyPage} options={{title: "Verification"}}/> */}
       </Stack.Navigator>
     </NavigationContainer>
   )

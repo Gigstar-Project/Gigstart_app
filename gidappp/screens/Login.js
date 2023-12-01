@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const Signin = ({navigation}) => {
+const Login = ({navigation}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -70,4 +70,26 @@ const Signin = ({navigation}) => {
   );
 };
 
-export default Signin;
+
+
+
+// const VerifyPage = () => {
+//   const [email, setEmail] = useState("");
+
+//   const handleChangeText = (text) => {
+//     setEmail(text);
+//   };
+
+//   return (
+//     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+//       <TextInput
+//         style={{ width: 300, height: 50, borderColor: "gray", borderWidth: 1 }}
+//         placeholder="Enter your email"
+//         value={email}
+//         onChangeText={handleChangeText}
+//       />
+//     </View>
+//   );
+// };
+
+export default Login;
