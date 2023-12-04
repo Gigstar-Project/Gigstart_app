@@ -1,67 +1,9 @@
-// import React, {useState} from "react";
-// import { TextInput, View, Button, StyleSheet, TouchableOpacity, Text } from "react-native";
-
-
-
-
-// const InputEmail = ()=>{
-//     const [email, setEmail] = useState("");
-//     const [isEmailValid, setIsEmailValid] = useState(true);
-
-
-//      const handleChangeEmail = (text) => {
-//     const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-//     if (regex.test(text)) {
-//       setIsEmailValid(true);
-//     } else {
-//       setIsEmailValid(false);
-//     }
-//     setEmail(text);
-//   };
-
-//   return(
-//     <view>
-//         <TextInput
-//         const style={{
-//                       width: 300,
-//                       height: 50,
-//                       borderColor: isEmailValid ? "blue" : "red",
-//                       borderWidth: 1,
-//                       borderRadius: 60,
-//                     }}
-//                     placeholder="Enter your email"
-//                     value={email}
-//                     onChangeText={handleChangeEmail}
-//         />
-
-// <TouchableOpacity
-//         style={{
-//           backgroundColor: "#007bff",
-//           padding: 10,
-//           borderRadius: 10,
-//           marginTop: 10,
-//         }}
-//         onPress={handleFormSubmit}
-//       >
-//         <Text style={{ color: "red" }}>Submit</Text>
-//       </TouchableOpacity>
-
-   
-//     </view>
-//   )
-
-  
-
-
-// }
-
-// export default InputEmail;
-
 
 import React, { useState } from "react";
+import axios from "axios";
 import { TextInput, View, Button, StyleSheet, TouchableOpacity, Text, SafeAreaView } from "react-native";
-import VerifyPage from "./VerifyPage";
-import { NavigationContainer } from "@react-navigation/native";
+
+
 
 const InputEmail = ({navigation}) => {
   const [email, setEmail] = useState("");
@@ -89,19 +31,36 @@ const InputEmail = ({navigation}) => {
 
   };
 
-  
 
+  const sendOtpRequest = async (email) => {
+
+    try {
+      const url = `http://localhost:8080/api/v1/user/confirmation-code/${email}`;
+      const response = await axios.post(url);
+      if (response.status === 200) {
+        alert( response.data);
+      }else{
+        alert( response.data)
+      }
+      
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  
   const handleFormSubmit = async () => {
     if(handleChangeEmail(email)){
       setIssubmitted(true);
+
+      await sendOtpRequest(email);
         alert("Email Submitted", email);
         setEmail("");
-        navigation.navigate("VerifyPage", {email});
+        navigation.navigate("Otp Request", {email});
 
         setErrors({});
 
     }else{
-      alert("Invalid Email Address");
+     
     }
     
   };

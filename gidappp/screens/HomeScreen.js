@@ -12,7 +12,7 @@ export default function HomeScreen({navigation}) {
           {/* <Image style={styles.picture} source={require("./assets/logo-black.copy.png")} /> */}
         
             <View style = { styles.parkUp }>
-            <TouchableOpacity style={styles.getStartedBtn} onPress = {() => navigation.navigate('Verify') }>
+            <TouchableOpacity style={styles.getStartedBtn} onPress = {() => navigation.navigate('Confirmation') }>
               <Text style={styles.buttonText}>Get Started</Text>
             </TouchableOpacity>
 
